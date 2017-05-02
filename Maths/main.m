@@ -29,28 +29,22 @@ int main(int argc, const char * argv[]) {
         while (true){
         AdditionQuestion *randomAdditionQuestion = [[AdditionQuestion alloc]init];
         NSLog(@"%@",[randomAdditionQuestion question]);
-        char inputChars[255];
-        printf("Please enter your answer: ");
-        fgets(inputChars, 255, stdin);
-        NSString *result = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
-        NSCharacterSet *charSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-        NSString *parsedString = [result stringByTrimmingCharactersInSet:charSet];
-        NSInteger parsedStringIntValue = [parsedString intValue];
-            
-            if ([parsedString  isEqualToString:@"quit"]) {
-                gameOn = NO;
-                break;
-            } else {
-            
-                if (randomAdditionQuestion.answer == parsedStringIntValue) {
-                    NSLog(@"Right!");
-                } else {
-                    NSLog(@"Wrong!");
-                }
-                }
-
+        InputHandler *inputHandler = [[InputHandler alloc]init];
+        NSString *parsedString = [inputHandler initiateUserInteraction];
+        if ([parsedString  isEqualToString:@"quit"]) {
+            gameOn = NO;
+            break;
+        } else {
         
-        }
+            if (randomAdditionQuestion.answer == [parsedString intValue]) {
+                NSLog(@"Right!");
+            } else {
+                NSLog(@"Wrong!");
+            }
+            }
+
+    
     }
+}
     return 0;
 }
