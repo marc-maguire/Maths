@@ -27,7 +27,7 @@ int main(int argc, const char * argv[]) {
         ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc]init];
         BOOL gameOn = YES;
     
-        while (true){
+        while (gameOn){
         AdditionQuestion *randomAdditionQuestion = [[AdditionQuestion alloc]init];
         NSLog(@"%@",[randomAdditionQuestion question]);
         InputHandler *inputHandler = [[InputHandler alloc]init];
@@ -35,7 +35,7 @@ int main(int argc, const char * argv[]) {
         
         if ([parsedString  isEqualToString:@"quit"]) {
             gameOn = NO;
-            break;
+            continue;
         } else {
         
             if (randomAdditionQuestion.answer == [parsedString intValue]){

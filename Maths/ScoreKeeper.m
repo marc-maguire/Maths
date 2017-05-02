@@ -23,9 +23,8 @@
 
 -(void)printScore {
     
-    NSString *currentScore = [NSString stringWithFormat: @"Current Score: %lu right, %lu wrong ------ %.0f%%",self.correctAnswers,self.incorrectAnswers, (float)((self.correctAnswers / (self.correctAnswers + self.incorrectAnswers))*100)];
-    //fails if first answer is corrent and doesn't display anything below 100% only above
-    
+    NSString *currentScore = [NSString stringWithFormat: @"Current Score: %lu right, %lu wrong ------ %0.2f%%",self.correctAnswers,self.incorrectAnswers,(float)self.correctAnswers / (self.correctAnswers + self.incorrectAnswers)*100];
+
     NSLog(@"%@",currentScore);
 }
 
