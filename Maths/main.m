@@ -16,23 +16,41 @@
 //To add a scoring function to the game
 
 #import <Foundation/Foundation.h>
+#import "AdditionQuestion.h"
+#import "InputHandler.h"
 
 
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        
+        BOOL gameOn = YES;
     
+        while (true){
+        AdditionQuestion *randomAdditionQuestion = [[AdditionQuestion alloc]init];
+        NSLog(@"%@",[randomAdditionQuestion question]);
         char inputChars[255];
-        printf("Input a string: ");
+        printf("Please enter your answer: ");
         fgets(inputChars, 255, stdin);
         NSString *result = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
         NSCharacterSet *charSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
         NSString *parsedString = [result stringByTrimmingCharactersInSet:charSet];
-        NSLog(@"%@",parsedString);
-    
+        NSInteger parsedStringIntValue = [parsedString intValue];
+            
+            if ([parsedString  isEqualToString:@"quit"]) {
+                gameOn = NO;
+                break;
+            } else {
+            
+                if (randomAdditionQuestion.answer == parsedStringIntValue) {
+                    NSLog(@"Right!");
+                } else {
+                    NSLog(@"Wrong!");
+                }
+                }
 
         
-        
+        }
     }
     return 0;
 }
