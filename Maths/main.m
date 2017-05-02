@@ -30,8 +30,7 @@ int main(int argc, const char * argv[]) {
         while (gameOn){
         AdditionQuestion *randomAdditionQuestion = [[AdditionQuestion alloc]init];
         NSLog(@"%@",[randomAdditionQuestion question]);
-        InputHandler *inputHandler = [[InputHandler alloc]init];
-        NSString *parsedString = [inputHandler initiateUserInteraction];
+        NSString *parsedString = [InputHandler initiateUserInteraction];
         
         if ([parsedString  isEqualToString:@"quit"]) {
             gameOn = NO;

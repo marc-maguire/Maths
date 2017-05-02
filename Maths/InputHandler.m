@@ -10,7 +10,7 @@
 
 @implementation InputHandler
 
--(NSString *)initiateUserInteraction {
++(NSString *)initiateUserInteraction {
     
     char inputChars[255];
     printf("Please enter your answer: ");
