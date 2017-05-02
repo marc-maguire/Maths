@@ -18,12 +18,13 @@
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
 #import "InputHandler.h"
-
+#import "ScoreKeeper.h"
 
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
+        ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc]init];
         BOOL gameOn = YES;
     
         while (true){
@@ -31,15 +32,19 @@ int main(int argc, const char * argv[]) {
         NSLog(@"%@",[randomAdditionQuestion question]);
         InputHandler *inputHandler = [[InputHandler alloc]init];
         NSString *parsedString = [inputHandler initiateUserInteraction];
+        
         if ([parsedString  isEqualToString:@"quit"]) {
             gameOn = NO;
             break;
         } else {
         
-            if (randomAdditionQuestion.answer == [parsedString intValue]) {
-                NSLog(@"Right!");
+            if (randomAdditionQuestion.answer == [parsedString intValue]){
+                scoreKeeper.correctAnswers += 1;
+                [scoreKeeper printScore];
             } else {
-                NSLog(@"Wrong!");
+                scoreKeeper.incorrectAnswers += 1;
+                [scoreKeeper printScore];
+
             }
             }
 
