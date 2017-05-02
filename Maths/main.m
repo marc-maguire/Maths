@@ -26,11 +26,11 @@ int main(int argc, const char * argv[]) {
         printf("Input a string: ");
         fgets(inputChars, 255, stdin);
         NSString *result = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
-        NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:result];
+        NSCharacterSet *charSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
         NSString *parsedString = [result stringByTrimmingCharactersInSet:charSet];
-        
+        NSLog(@"%@",parsedString);
     
-    //stringByTrimmingCharactersInSet:<#(nonnull NSCharacterSet *)#>;
+
         
         
     }
