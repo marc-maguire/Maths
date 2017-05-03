@@ -7,7 +7,7 @@
 //
 
 #import "QuestionManager.h"
-#import "AdditionQuestion.h"
+#import "Question.h"
 
 @implementation QuestionManager
 
@@ -22,16 +22,16 @@
 -(NSString *)timeOutput {
     
     NSTimeInterval totalTime = 0.0;
-    for (AdditionQuestion *additionQuestion in self.questions) {
-        totalTime += [additionQuestion answerTime];
+    for (Question *question in self.questions) {
+        totalTime += [question answerTime];
     }
     
-    //total time is for loop for questions in question array and add all the time together
+   //total time is for loop for questions in question array and add all the time together
     
     //avg time is count of questions in questionmanager questions array. divid total time by count
     
-    
-    NSString *timeOutputString = [NSString stringWithFormat:@"Total time: %fs, Average time: %fs",totalTime, (totalTime / [self.questions count])];
+     
+    NSString *timeOutputString = [NSString stringWithFormat:@"Total time: %.0fs, Average time: %.0fs",totalTime, (totalTime / [self.questions count])];
     return timeOutputString;
 }
 

@@ -16,7 +16,7 @@
 //To add a scoring function to the game
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
 #import "QuestionManager.h"
@@ -35,9 +35,9 @@ int main(int argc, const char * argv[]) {
         BOOL gameOn = YES;
     
         while (gameOn){
-        AdditionQuestion *randomAdditionQuestion = [[AdditionQuestion alloc]init];
+        Question *randomQuestion = [[Question alloc]init];
        
-        NSLog(@"%@",[randomAdditionQuestion question]);
+        NSLog(@"%@",[randomQuestion question]);
         NSString *parsedString = [InputHandler initiateUserInteraction];
         
         if ([parsedString  isEqualToString:@"quit"]) {
@@ -45,7 +45,7 @@ int main(int argc, const char * argv[]) {
             continue;
         } else {
         
-            if (randomAdditionQuestion.answer == [parsedString intValue]){
+            if (randomQuestion.answer == [parsedString intValue]){
                 
                 scoreKeeper.correctAnswers += 1;
                 [scoreKeeper printScore];
@@ -55,7 +55,7 @@ int main(int argc, const char * argv[]) {
 
             }
             }
-            [questionManager.questions addObject:randomAdditionQuestion]; //put here to capture end time before adding, not sure if could be moved outside of while
+            [questionManager.questions addObject:randomQuestion]; //put here to capture end time before adding, not sure if could be moved outside of while
     }
 }
     return 0;

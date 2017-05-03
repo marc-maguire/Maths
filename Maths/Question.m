@@ -8,9 +8,9 @@
 
 //generate a random math question
 //also handle answer to question
-#import "AdditionQuestion.h"
+#import "Question.h"
 
-@implementation AdditionQuestion
+@implementation Question
 
 -(instancetype)init {
     if (self = [super init]) {
