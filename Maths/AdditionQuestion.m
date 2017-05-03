@@ -22,10 +22,28 @@
        _question = [NSString stringWithFormat:@"What is the answer to %li + %li?",firstRandomNumber, secondRandomNumber];
         
         _answer = firstRandomNumber + secondRandomNumber;
+        _startTime = [NSDate date];
+        
     
     }
     return self;
 }
 
+
+- (NSInteger)answer {
+    
+    _endTime = [NSDate date];
+    return _answer;
+}
+
+- (NSTimeInterval)answerTime {
+    
+  
+    NSTimeInterval answerTime = [self.startTime timeIntervalSinceDate:self.endTime];
+    return answerTime;
+    
+    
+    
+}
 
 @end
