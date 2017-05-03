@@ -38,7 +38,7 @@
 
 - (NSTimeInterval)answerTime {
     
-  
+    
     NSTimeInterval answerTime = [self.startTime timeIntervalSinceDate:self.endTime];
     return answerTime;
     

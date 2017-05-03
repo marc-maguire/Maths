@@ -19,6 +19,7 @@
 #import "AdditionQuestion.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
+#import "QuestionManager.h"
 
 //The app should report the total play time. It should also report the average time it takes the player to answer a question. It should look something like this:
 //total time: 60s, average time: 10s
@@ -29,10 +30,13 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc]init];
+        QuestionManager *questionManager = [[QuestionManager alloc]init];
+        
         BOOL gameOn = YES;
     
         while (gameOn){
         AdditionQuestion *randomAdditionQuestion = [[AdditionQuestion alloc]init];
+       
         NSLog(@"%@",[randomAdditionQuestion question]);
         NSString *parsedString = [InputHandler initiateUserInteraction];
         
@@ -42,6 +46,7 @@ int main(int argc, const char * argv[]) {
         } else {
         
             if (randomAdditionQuestion.answer == [parsedString intValue]){
+                
                 scoreKeeper.correctAnswers += 1;
                 [scoreKeeper printScore];
             } else {
@@ -50,8 +55,7 @@ int main(int argc, const char * argv[]) {
 
             }
             }
-
-    
+            [questionManager.questions addObject:randomAdditionQuestion]; //put here to capture end time before adding, not sure if could be moved outside of while
     }
 }
     return 0;
