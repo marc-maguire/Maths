@@ -19,9 +19,12 @@
         NSInteger secondRandomNumber =arc4random_uniform(90);
         secondRandomNumber += 10;
         
-       _question = [NSString stringWithFormat:@"What is the answer to %li + %li?",firstRandomNumber, secondRandomNumber];
+        _leftValue = firstRandomNumber;
+        _rightValue = secondRandomNumber;
         
-        _answer = firstRandomNumber + secondRandomNumber;
+      // _question = [NSString stringWithFormat:@"What is the answer to %li + %li?",firstRandomNumber, secondRandomNumber];
+        
+       // _answer = firstRandomNumber + secondRandomNumber;
         _startTime = [NSDate date];
         
     
@@ -38,12 +41,11 @@
 
 - (NSTimeInterval)answerTime {
     
-    
     NSTimeInterval answerTime = [self.startTime timeIntervalSinceDate:self.endTime];
     return answerTime;
-    
-    
-    
+}
+-(void)generateQuestion {
+    //must implement in subclasses
 }
 
 @end

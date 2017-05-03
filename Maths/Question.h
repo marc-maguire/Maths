@@ -12,10 +12,15 @@
 
 @property (nonatomic,copy) NSString *question;
 @property (nonatomic) NSInteger answer;
+
+@property (nonatomic) NSInteger rightValue;
+@property (nonatomic) NSInteger leftValue;
+
 @property (nonatomic) NSDate *startTime;
 @property (nonatomic) NSDate *endTime;
 
 - (NSTimeInterval)answerTime;
+- (void)generateQuestion; //abstract - must implement
 
 
 @end
