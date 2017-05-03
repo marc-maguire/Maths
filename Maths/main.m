@@ -51,10 +51,11 @@ int main(int argc, const char * argv[]) {
                 
                 scoreKeeper.correctAnswers += 1;
                 [scoreKeeper printScore];
+                NSLog(@"%@",[questionManager timeOutput]);
             } else {
                 scoreKeeper.incorrectAnswers += 1;
                 [scoreKeeper printScore];
-
+                NSLog(@"%@",[questionManager timeOutput]);
             }
             }
             [questionManager.questions addObject:randomQuestion]; //put here to capture end time before adding, not sure if could be moved outside of while

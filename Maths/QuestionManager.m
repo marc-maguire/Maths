@@ -22,8 +22,13 @@
 -(NSString *)timeOutput {
     
     NSTimeInterval totalTime = 0.0;
+    NSTimeInterval averageTime = 0.0;
+    float counter = 1;
     for (Question *question in self.questions) {
         totalTime += [question answerTime];
+        averageTime = totalTime / counter;
+        counter ++;
+        
     }
     
    //total time is for loop for questions in question array and add all the time together
@@ -31,7 +36,7 @@
     //avg time is count of questions in questionmanager questions array. divid total time by count
     
      
-    NSString *timeOutputString = [NSString stringWithFormat:@"Total time: %.0fs, Average time: %.0fs",totalTime, (totalTime / [self.questions count])];
+    NSString *timeOutputString = [NSString stringWithFormat:@"Total time: %.2fs, Average time: %.2fs",totalTime, averageTime];
     return timeOutputString;
 }
 

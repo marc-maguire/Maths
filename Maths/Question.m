@@ -41,7 +41,7 @@
 
 - (NSTimeInterval)answerTime {
     
-    NSTimeInterval answerTime = [self.startTime timeIntervalSinceDate:self.endTime];
+    NSTimeInterval answerTime = [self.endTime timeIntervalSinceDate:self.startTime];
     return answerTime;
 }
 -(void)generateQuestion {
