@@ -18,6 +18,7 @@
     [super setAnswer:subtractionAnswer];
     
 }
+
 -(instancetype)init {
     if (self = [super init]) {
         [self generateQuestion];

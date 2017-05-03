@@ -20,6 +20,7 @@
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
 #import "QuestionManager.h"
+#import "QuestionFactory.h"
 
 //The app should report the total play time. It should also report the average time it takes the player to answer a question. It should look something like this:
 //total time: 60s, average time: 10s
@@ -35,8 +36,9 @@ int main(int argc, const char * argv[]) {
         BOOL gameOn = YES;
     
         while (gameOn){
-        Question *randomQuestion = [[Question alloc]init];
-       
+        QuestionFactory *questionFactory = [[QuestionFactory alloc]init];
+        Question *randomQuestion = [questionFactory generateRandomQuestion];
+
         NSLog(@"%@",[randomQuestion question]);
         NSString *parsedString = [InputHandler initiateUserInteraction];
         
