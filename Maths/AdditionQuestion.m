@@ -14,9 +14,9 @@
 
 -(instancetype)init {
     if (self = [super init]) {
-        NSInteger firstRandomNumber = arc4random_uniform(100);
+        NSInteger firstRandomNumber = arc4random_uniform(90);
         firstRandomNumber += 10;
-        NSInteger secondRandomNumber =arc4random_uniform(100);
+        NSInteger secondRandomNumber =arc4random_uniform(90);
         secondRandomNumber += 10;
         
        _question = [NSString stringWithFormat:@"What is the answer to %li + %li?",firstRandomNumber, secondRandomNumber];

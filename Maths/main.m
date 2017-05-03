@@ -20,6 +20,10 @@
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
 
+//The app should report the total play time. It should also report the average time it takes the player to answer a question. It should look something like this:
+//total time: 60s, average time: 10s
+//* Add other basic math operations like subtraction, multiplication, division
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
